@@ -45,9 +45,7 @@ def get_rpath(lib):
     return rlibs
 
 def relink(options, buildout):
-    libdir = os.path.join(
-        buildout['part']['location'], 'lib'
-    )
+    libdir = os.path.join(options['location'], 'lib')
     if sys.platform.lower() == 'darwin':
         libs = [a for a in os.listdir(libdir) if 'dylib' in a]
         for i in libs:
